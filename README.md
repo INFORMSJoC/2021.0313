@@ -57,7 +57,7 @@ The goal of this repository is to share softare and R scripts of our paper *$\el
     
 #### [data](data) folder contains the data in the real data application in Section 4.2. Please see [spreadsheet file](data/air_hourly.csv) to view the data.
 
-#### [AMIAS_1.0.3.tar.gz](AMIAS_1.0.3.tar.gz) contains the source file of the R package for implementing the AMIAS algorithm proposed in our paper. After downloading it, you need to run the following code in R to install it.
+#### [src](src) contains the source file [AMIAS_1.0.3.tar.gz](src/AMIAS_1.0.3.tar.gz) of the R package for implementing the AMIAS algorithm proposed in our paper. After downloading it, you need to run the following code in R to install it.
 
     install.packages("Your_download_path/AMIAS_1.0.3.tar.gz", repos = NULL)
 
