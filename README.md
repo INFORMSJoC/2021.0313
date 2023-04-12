@@ -1,19 +1,15 @@
 [![INFORMS Journal on Computing Logo](https://INFORMSJoC.github.io/logos/INFORMS_Journal_on_Computing_Header.jpg)](https://pubsonline.informs.org/journal/ijoc)
 
-# CacheTest
+# $\ell_0$ Trend Filtering
 
 This archive is distributed in association with the [INFORMS Journal on
 Computing](https://pubsonline.informs.org/journal/ijoc) under the [MIT License](LICENSE).
 
-The software and data in this repository are a snapshot of the software and data
-that were used in the research reported on in the paper 
-[This is a Template](https://doi.org/10.1287/ijoc.2019.0000) by T. Ralphs. 
-The snapshot is based on 
-[this SHA](https://github.com/tkralphs/JoCTemplate/commit/f7f30c63adbcb0811e5a133e1def696b74f3ba15) 
-in the development repository. 
+The software and R scripts in this repository are a snapshot of the software and code that were used in the research reported on in the paper 
+[$\ell_0$ Trend Filtering](https://doi.org/10.1287/ijoc.2019.0000) by C. Wen and X. Wang and A. Zhang. 
 
 **Important: This code is being developed on an on-going basis at 
-https://github.com/tkralphs/JoCTemplate. Please go there if you would like to
+https://github.com/C2S2-HF/L0TF. Please go there if you would like to
 get a more recent version or would like support**
 
 ## Cite
@@ -27,80 +23,49 @@ https://doi.org/10.1287/ijoc.2019.0000.cd
 Below is the BibTex for citing this snapshot of the respoitory.
 
 ```
-@article{CacheTest,
-  author =        {T. Ralphs},
+@article{wenl0trend,
+  author =        {Canhong Wen, Xueqin Wang, Aijun Zhang},
   publisher =     {INFORMS Journal on Computing},
-  title =         {{CacheTest}},
-  year =          {2020},
+  title =         {$\ell_0$ Trend Filtering},
+  year =          {2023},
   doi =           {10.1287/ijoc.2019.0000.cd},
-  url =           {https://github.com/INFORMSJoC/2019.0000},
+  url =           {https://github.com/INFORMSJoC/2021.0313},
 }  
 ```
 
 ## Description
 
-The goal of this software is to demonstrate the effect of cache optimization.
+The goal of this repository is to share softare and R scripts of our paper *$\ell_0$ Trend Filtering*. Our motivation is to present our code and results in a reproducible way and facilitate the coding effort of thos who want to run further experiments or improve our model.
 
-## Building
+## Repository Structure
 
-In Linux, to build the version that multiplies all elements of a vector by a
-constant (used to obtain the results in [Figure 1](results/mult-test.png) in the
-paper), stepping K elements at a time, execute the following commands.
+#### [code](code) folder contains the following files in R language:
+* SimuL0TF.Rmd: generate Figures 2-7 and include some more illustrative simulated examples.
+* AlgoAnalysis.Rmd: replicate the reuslts and generate Figures 8-11 in Section 4.1.
+* utils.R and amiasutils.R: source codes used in AlgoAnalysis.Rmd.
+* RealData.R: replicate the results and generate all the graphs in Section 4.3.
+* AlgoAnalysis_APP.Rmd: replicate the reuslts and generate Figures B.1-B.7 in Appendix B.1.
+* [simu](simu) folder contains R scripts used in Appendix B.2: 
+    * nsimu.R and tsimu.R: replicate the results for all methods except for the l0-MIP with large sample size.
+    * nsimul0tfc.R and tsimul0tfc.R: replicate the results of the l0-MIP method when sample size is large.
+* [simu_plots](simu_plots) folder contains the R Scripts used to generate Figures B.9-B.20 in Appendix B.2.
+    * post_plot.R: generate Figures B.9, B.11 and B.13. 
+    * pre_plot.R: generate Figures B.10, B.12 and B.14.
+    * post_tplot.R: generate Figures B.15, B.17 and B.19. 
+    * pre_tplot.R: generate Figures B.16, B.18 and B.20. 
+    * combine_RData.R: combine the RData and needed to be run before generating all the figures.
+    
+#### [data](data) folder contains the data in the real data application in Section 4.2. Please see [spreadsheet file](data/air_hourly.csv) to view the data.
 
-```
-make mult
-```
+#### [src](src) contains the source file [AMIAS_1.0.3.tar.gz](src/AMIAS_1.0.3.tar.gz) of the R package for implementing the AMIAS algorithm proposed in our paper. After downloading it, you need to run the following code in R to install it.
 
-Alternatively, to build the version that sums the elements of a vector (used
-to obtain the results [Figure 2](results/sum-test.png) in the paper), stepping K
-elements at a time, do the following.
+    install.packages("Your_download_path/AMIAS_1.0.3.tar.gz", repos = NULL)
 
-```
-make clean
-make sum
-```
-
-Be sure to make clean before building a different version of the code.
-
-## Results
-
-Figure 1 in the paper shows the results of the multiplication test with different
-values of K using `gcc` 7.5 on an Ubuntu Linux box.
-
-![Figure 1](results/mult-test.png)
-
-Figure 2 in the paper shows the results of the sum test with different
-values of K using `gcc` 7.5 on an Ubuntu Linux box.
-
-![Figure 1](results/sum-test.png)
-
-## Replicating
-
-To replicate the results in [Figure 1](results/mult-test), do either
-
-```
-make mult-test
-```
-or
-```
-python test.py mult
-```
-To replicate the results in [Figure 2](results/sum-test), do either
-
-```
-make sum-test
-```
-or
-```
-python test.py sum
-```
-
-## Ongoing Development
-
-This code is being developed on an on-going basis at the author's
-[Github site](https://github.com/tkralphs/JoCTemplate).
 
 ## Support
 
-For support in using this software, submit an
-[issue](https://github.com/tkralphs/JoCTemplate/issues/new).
+For support in using the scripts, you can reach the authors by email wench@ustc.edu.cn.
+
+
+
+
