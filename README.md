@@ -40,6 +40,11 @@ The goal of this repository is to share softare and R scripts of our paper *$\el
 ## Repository Structure
 
 #### [code](code) folder contains the following files in R language:
+* AMIAS_1.0.3.tar.gz: the R package for implementing the AMIAS algorithm proposed in our paper. After downloading it, you need to run the following code in R to install it.
+
+      install.packages("Your_download_path/AMIAS_1.0.3.tar.gz", repos = NULL)
+  
+  This R package should be installed before running any R scripts or Rmarkdown files in this folder.
 * SimuL0TF.Rmd: generate Figures 2-7 and include some more illustrative simulated examples.
 * AlgoAnalysis.Rmd: replicate the reuslts and generate Figures 8-11 in Section 4.1.
 * utils.R and amiasutils.R: source codes used in AlgoAnalysis.Rmd.
@@ -57,9 +62,6 @@ The goal of this repository is to share softare and R scripts of our paper *$\el
     
 #### [data](data) folder contains the data in the real data application in Section 4.2. Please see [spreadsheet file](data/air_hourly.csv) to view the data.
 
-#### [src](src) contains the source file [AMIAS_1.0.3.tar.gz](src/AMIAS_1.0.3.tar.gz) of the R package for implementing the AMIAS algorithm proposed in our paper. After downloading it, you need to run the following code in R to install it.
-
-    install.packages("Your_download_path/AMIAS_1.0.3.tar.gz", repos = NULL)
 
 
 ## Support
