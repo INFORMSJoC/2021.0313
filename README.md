@@ -35,12 +35,21 @@ Below is the BibTex for citing this snapshot of the respoitory.
 
 ## Description
 
-The goal of this repository is to share softare and R scripts of our paper *$\ell_0$ Trend Filtering*. Our motivation is to present our code and results in a reproducible way and facilitate the coding effort of thos who want to run further experiments or improve our model.
+The goal of this repository is to share softare and R scripts of our paper *$\ell_0$ Trend Filtering*. Our motivation is to present our code and results in a reproducible way and facilitate the coding effort of those who want to run further experiments or improve our model.
+
+## Requirements
+
+To run the R scripts in the [code](code) folder, you should install R and RStudio firstly:
+ - [R](https://cran.rstudio.com/)(>3.3.0)
+ - [RStudio](https://posit.co/downloads/)
+ 
+After installing the R and Rstudio, you could open and run the script files of [code](code) folder directly in RStudio.
+
 
 ## Repository Structure
 
 #### [code](code) folder contains the following files in R language:
-* AMIAS_1.0.3.tar.gz: the R package for implementing the AMIAS algorithm proposed in our paper. After downloading it, you need to run the following code in R to install it.
+* AMIAS_1.0.3.tar.gz: the R package for implementing the AMIAS algorithm proposed in our paper. After downloading it, you need to run the following code in R or RStudio to install it.
 
       install.packages("Your_download_path/AMIAS_1.0.3.tar.gz", repos = NULL)
   
