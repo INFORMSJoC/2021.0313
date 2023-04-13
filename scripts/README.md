@@ -1,9 +1,9 @@
 # $\ell_0$ Trend Filtering
 
-This file folder contains all the R scripts that are used to replicate the results in our paper. Before running these scripts, you need to install [R]() and [RStudio]()
+This file folder contains all the R scripts that are used to replicate the results in our paper. Before running these scripts, you need to install [R](https://cran.rstudio.com/) and [RStudio](https://posit.co/downloads/).
 
 
-* SimuL0TF.Rmd: generate Figures 2-7 and include some more illustrative simulated examples.
+* SimuL0TF.Rmd: generate Figures 2-7 and include some more illustrative simulated examples. The output HTML file should look like [SimuL0TF.html](result/SimuL0TF.pdf).
 * AlgoAnalysis.Rmd: replicate the reuslts and generate Figures 8-11 in Section 4.1.
 * utils.R and amiasutils.R: source codes used in AlgoAnalysis.Rmd.
 * RealData.R: replicate the results and generate all the graphs in Section 4.3.
