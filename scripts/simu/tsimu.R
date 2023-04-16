@@ -1,3 +1,13 @@
+##################################################################################################
+###                                                                                            ###
+### Replication code for "L0 trend filtering" by Canhong Wen, Xueqin Wang and Aijun Zhang      ###
+### This file contains the codes for simulation studies with t-distributed error               ###
+### Updated on 13 April 2023                                                                   ###
+###                                                                                            ###
+##################################################################################################
+
+# 1. Load Packages and Functions Needed -------
+
 if(!require(gurobi)) install.packages('gurobi')
 if(!require(pracma)) install.packages('pracma')
 if(!require(AMIAS)) install.packages('AMIAS')
@@ -15,6 +25,8 @@ library(not)
 library(changepoint)
 library(freeknotsplines)
 library(cpop)
+
+## The following three functions used to generate simulated data
 SimuBlocks <- function (n, sigma = 0.1, seed=NA) 
 {
   if (!is.na(seed)) set.seed(seed)
@@ -58,13 +70,11 @@ SimuDoppler <- function(n, sigma = 0.1, seed=NA){
   return(list(y = y, y0 = y0, x=x))
 }
 
-# -------------------------------------
 # Evalulate metrics for benchmark comparison
 # beta is the estimate 
 # y0 is the true signal
 # cpts is the estimated change points
 # tcpt is the true change points
-# -------------------------------------
 EvalMetrics <- function(beta, cpts=NULL, y0, tcpt = NULL){
   mse <- mean((beta-y0)^2)
   mad <- mean(abs(beta-y0))
@@ -85,6 +95,8 @@ EvalMetrics <- function(beta, cpts=NULL, y0, tcpt = NULL){
   }
   return(tab)
 }
+
+## Functions to calculate the difference matrix 
 DiffMat1 <- function(n){
   D = cbind(-diag(n-1),0) + cbind(0, diag(n-1))
   return(D)
@@ -95,6 +107,7 @@ DiffMat <- function(n, k=1){
   return(D)
 }
 
+## Run L0TF for just one run, which can be used in parallel computing 
 SingleRunL0TF <- function(dgm = "Blocks", n=300, sigma=0.1, seed=NA){
   if (dgm=="Blocks"){
     data = SimuBlocks(n=n, sigma=sigma, seed=seed)
@@ -120,7 +133,6 @@ SingleRunL0TF <- function(dgm = "Blocks", n=300, sigma=0.1, seed=NA){
   return(metric)
 }
 
-# -----------------------------------
 # Wrapped-up L1TF 
 L1TF <- function(data, n, q, maxdf) {
   resL1  <- trendfilter(pos=data$x, y=data$y, ord=q) 
@@ -132,6 +144,8 @@ L1TF <- function(data, n, q, maxdf) {
   return(list(beta=betaL1, knot=knotL1))
 }
 
+
+# Run L1TF for just one run, which can be used in parallel computing
 SingleRunL1TF <- function(dgm = "Blocks", n=300, sigma=0.1, seed=NA){
   if (dgm=="Blocks"){
     data = SimuBlocks(n=n, sigma=sigma, seed=seed)
@@ -153,6 +167,8 @@ SingleRunL1TF <- function(dgm = "Blocks", n=300, sigma=0.1, seed=NA){
   return(metric)
 }
 
+
+# Run wbs for just one run, which can be used in parallel computing
 SingleRunwbsTF <- function(dgm = "Blocks", n=300, sigma=0.1, seed=NA){
   if (dgm=="Blocks"){
     data = SimuBlocks(n=n, sigma=sigma, seed=seed)
@@ -173,6 +189,8 @@ SingleRunwbsTF <- function(dgm = "Blocks", n=300, sigma=0.1, seed=NA){
   return(metric)
 }
 
+
+# Run PELT for just one run, which can be used in parallel computing
 SingleRunPeltTF <- function(dgm = "Blocks", n=300, sigma=0.1, seed=NA){
   if (dgm=="Blocks"){
     data = SimuBlocks(n=n, sigma=sigma, seed=seed)
@@ -200,6 +218,8 @@ SingleRunPeltTF <- function(dgm = "Blocks", n=300, sigma=0.1, seed=NA){
   return(metric)
 }
 
+
+# Run CPOP for just one run, which can be used in parallel computing
 SingleRunCpopTF <- function(dgm = "Blocks", n=300, sigma=0.1, seed=NA){
   if (dgm=="Blocks"){
     stop("Wrong dgm in Cpop!")
@@ -225,6 +245,8 @@ SingleRunCpopTF <- function(dgm = "Blocks", n=300, sigma=0.1, seed=NA){
   return(metric)
 }
 
+
+# Run NOT for just one run, which can be used in parallel computing
 SingleRunNotTF <- function(dgm = "Blocks", n=300, sigma=0.1, seed=NA){
   if (dgm=="Blocks"){
     data = SimuBlocks(n=n, sigma=sigma, seed=seed)
@@ -254,6 +276,7 @@ SingleRunNotTF <- function(dgm = "Blocks", n=300, sigma=0.1, seed=NA){
   return(metric)
 }
 
+# Functions adopted from https://github.com/yshin12/sparseHP. This implement the l0-MIP method 
 l0tfc <- function(y=y, D_matrix, l0constraint=l0constraint,M=M,l2penalty=l2penalty,...){
   
   n <- length(y)
@@ -299,6 +322,7 @@ l0tfc <- function(y=y, D_matrix, l0constraint=l0constraint,M=M,l2penalty=l2penal
   rm(model, result, params)
 }
 
+# Choosing the optimal tuning parameter for l0-MIP using BIC. 
 BIC_l0tfc <- function(y, D, kmax, q){
   bwl=3
   n = length(y)
@@ -320,6 +344,8 @@ BIC_l0tfc <- function(y, D, kmax, q){
   list(knot=knots[[idx]], fit=fine[,idx], bic=bic[idx])
 }
 
+
+# Run l0-MIP for just one run, which can be used in parallel computing
 SingleRunL0tfcTF <- function(dgm = "Blocks", n=300, sigma=0.1, seed=NA){
   
   if (dgm=="Blocks"){
@@ -352,6 +378,7 @@ SingleRunL0tfcTF <- function(dgm = "Blocks", n=300, sigma=0.1, seed=NA){
   return(metric)
 }
 
+# Run Spline for just one run, which can be used in parallel computing
 SingleRunSpline <- function(dgm = "Blocks", n=300, sigma=0.1, seed=NA){
   if (dgm=="Blocks"){
     data = SimuBlocks(n=n, sigma=sigma, seed=seed)
@@ -375,14 +402,16 @@ SingleRunSpline <- function(dgm = "Blocks", n=300, sigma=0.1, seed=NA){
   return(metric)
 }
 
-# -------------------------------------
-# Blocks - Monte Carlo Replicates
-# -------------------------------------
+
+# 2. Run the Monte Carlo replication with 100 times------
+
 library(foreach)
 #library(doMC)
 # registerDoMC(cores=10)
 iter = 100
 iter2 <- 10
+
+# 2.1 Blocks example ----- 
 
 nn=c(seq(32,224,32), seq(256, 2048, 256)); sigma=0.1;
 ResultL0 <- ResultL1 <- ResultSp <- ResultPt <- ResultWs <- ResultNt <- ResultLc <- NULL
@@ -419,7 +448,7 @@ for (n in nn){
 }
 save(ResultL0, ResultL1, ResultSp, ResultPt, ResultWs, ResultNt, ResultLc, file="tBlocks.RData")
 
-
+# 2.2 Wave example ----- 
 ResultL0 <- ResultL1 <- ResultSp <- ResultCp <- ResultNt <- ResultLc <- NULL
 for (n in nn){
   cat("\nRunning n =", n)
@@ -452,6 +481,7 @@ for (n in nn){
 }
 save(ResultL0, ResultL1, ResultSp, ResultCp, ResultNt, ResultLc, file="tWave.RData")
 
+# 2.3 Doppler example -----
 nn <- seq(1280, 2048, 256)
 ResultL0 <- ResultL1 <- ResultSp <- ResultNt <- ResultLc <- NULL
 for (n in nn){

@@ -1,3 +1,12 @@
+##################################################################################################
+###                                                                                            ###
+### Replication code for "L0 trend filtering" by Canhong Wen, Xueqin Wang and Aijun Zhang      ###
+### This file contains the codes for simulation studies with normal-distributed error for the  ###
+### l0-MIP method with large sample size                                                       ###
+### Updated on 13 April 2023                                                                   ###
+###                                                                                            ###
+##################################################################################################
+
 if(!require(gurobi)) install.packages('gurobi')
 if(!require(pracma)) install.packages('pracma')
 
@@ -42,7 +51,6 @@ SimuDoppler <- function(n, sigma = 0.1, seed=NA){
   return(list(y = y, y0 = y0, x=x))
 }
 
-# -------------------------------------
 # Evalulate metrics for benchmark comparison
 # beta is the estimate 
 # y0 is the true signal
@@ -69,6 +77,7 @@ EvalMetrics <- function(beta, cpts=NULL, y0, tcpt = NULL){
   return(tab)
 }
 
+## Functions to calculate the difference matrix 
 DiffMat1 <- function(n){
   D = cbind(-diag(n-1),0) + cbind(0, diag(n-1))
   return(D)
@@ -79,7 +88,7 @@ DiffMat <- function(n, k=1){
   return(D)
 }
 
-# Functions adopted from https://github.com/yshin12/sparseHP ------
+# Functions adopted from https://github.com/yshin12/sparseHP.  This implement the l0-MIP method. 
 l0tfc <- function(y=y, D_matrix, l0constraint=l0constraint, M=M, l2penalty=l2penalty,...){
   
   n <- length(y)
@@ -125,6 +134,7 @@ l0tfc <- function(y=y, D_matrix, l0constraint=l0constraint, M=M, l2penalty=l2pen
   rm(model, result, params)
 }
 
+# Choosing the optimal tuning parameter for l0-MIP using BIC. 
 BIC_l0tfc <- function(y, D, kmax, q){
   bwl=3
   n = length(y)
@@ -177,13 +187,12 @@ SingleRunL0tfcTF <- function(dgm = "Blocks", n=300, sigma=0.1, seed=NA){
   return(metric)
 }
 
-# -------------------------------------
-# Blocks - Monte Carlo Replicates
-# -------------------------------------
+# 2. Run the Monte Carlo replication with 100 times------
 library(foreach)
 library(doMC)
 registerDoMC(cores=5)
 
+# 2.1 Blocks example ----- 
 nn=seq(32,256,32); sigma=0.1;
 ResultLc <- NULL
 for (n in nn){
@@ -194,7 +203,7 @@ for (n in nn){
 }
 save(ResultLc, file="lcBlocks.RData")
 
-
+# 2.2 Wave example ----- 
 nn=seq(32,160,32); sigma=0.1;
 ResultLc <- NULL
 for (n in nn){
@@ -205,6 +214,7 @@ for (n in nn){
 }
 save(ResultLc, file="lcWave.RData")
 
+# 2.3 Doppler example -----
 nn=seq(32,96,32); sigma=0.1;
 ResultLc <- NULL
 for (n in nn){

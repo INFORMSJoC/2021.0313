@@ -6,7 +6,7 @@ This archive is distributed in association with the [INFORMS Journal on
 Computing](https://pubsonline.informs.org/journal/ijoc) under the [MIT License](LICENSE).
 
 The software and R scripts in this repository are a snapshot of the software and code that were used in the research reported on in the paper 
-[$\ell_0$ Trend Filtering](https://doi.org/10.1287/ijoc.2019.0000) by C. Wen and X. Wang and A. Zhang. 
+**$\ell_0$ Trend Filtering** by C. Wen and X. Wang and A. Zhang. 
 
 **Important: This code is being developed on an on-going basis at 
 https://github.com/C2S2-HF/L0TF. Please go there if you would like to
@@ -35,11 +35,25 @@ Below is the BibTex for citing this snapshot of the respoitory.
 
 ## Description
 
-The goal of this repository is to share softare and R scripts of our paper *$\ell_0$ Trend Filtering*. Our motivation is to present our code and results in a reproducible way and facilitate the coding effort of thos who want to run further experiments or improve our model.
+The goal of this repository is to share softare and R scripts of our paper *$\ell_0$ Trend Filtering*. Our motivation is to present our code and results in a reproducible way and facilitate the coding effort of those who want to run further experiments or improve our model.
+
+## Requirements
+
+To run the R scripts in the [code](code) folder, you should install R and RStudio firstly:
+ - [R](https://cran.rstudio.com/)(>3.3.0)
+ - [RStudio](https://posit.co/downloads/)
+ 
+After installing the R and Rstudio, you could open and run the script files of [code](code) folder directly in RStudio.
+
 
 ## Repository Structure
 
 #### [code](code) folder contains the following files in R language:
+* AMIAS_1.0.3.tar.gz: the R package for implementing the AMIAS algorithm proposed in our paper. After downloading it, you need to run the following code in R or RStudio to install it.
+
+      install.packages("Your_download_path/AMIAS_1.0.3.tar.gz", repos = NULL)
+  
+  This R package should be installed before running any R scripts or Rmarkdown files in this folder.
 * SimuL0TF.Rmd: generate Figures 2-7 and include some more illustrative simulated examples.
 * AlgoAnalysis.Rmd: replicate the reuslts and generate Figures 8-11 in Section 4.1.
 * utils.R and amiasutils.R: source codes used in AlgoAnalysis.Rmd.
@@ -57,14 +71,10 @@ The goal of this repository is to share softare and R scripts of our paper *$\el
     
 #### [data](data) folder contains the data in the real data application in Section 4.2. Please see [spreadsheet file](data/air_hourly.csv) to view the data.
 
-#### [src](src) contains the source file [AMIAS_1.0.3.tar.gz](src/AMIAS_1.0.3.tar.gz) of the R package for implementing the AMIAS algorithm proposed in our paper. After downloading it, you need to run the following code in R to install it.
-
-    install.packages("Your_download_path/AMIAS_1.0.3.tar.gz", repos = NULL)
 
 
 ## Support
-
-For support in using the scripts, you can reach the authors by email wench@ustc.edu.cn.
+For support in using the scripts and data, submit an [issue](https://github.com/INFORMSJoC/2021.0313/issues/new).
 
 
 
