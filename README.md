@@ -8,9 +8,8 @@ Computing](https://pubsonline.informs.org/journal/ijoc) under the [MIT License](
 The software and R scripts in this repository are a snapshot of the software and code that were used in the research reported on in the paper 
 **$\ell_0$ Trend Filtering** by C. Wen and X. Wang and A. Zhang. 
 
-**Important: This code is being developed on an on-going basis at 
-https://github.com/C2S2-HF/L0TF. Please go there if you would like to
-get a more recent version or would like support**
+**Important: This code is being developed on an on-going basis at https://github.com/C2S2-HF/L0TF. Please go there if you would like to
+get a more recent version or would like support.**
 
 ## Cite
 
@@ -45,15 +44,28 @@ To run the R scripts in the [code](code) folder, you should install R and RStudi
  
 After installing the R and Rstudio, you could open and run the script files of [code](code) folder directly in RStudio.
 
+## Installation
+
+The `AMIAS` R package implements the algorithm proposed in the paper *$\ell_0$ Trend Filtering* with R language. 
+To install the `AMIAS` R package, one could directly download the source file **AMIAS_1.0.3.tar.gz:** in [code](code) folder, and install it from the local file folder by running
+```r
+install.packages("Your_download_path/AMIAS_1.0.3.tar.gz", repos = NULL)
+```
+
+Alternatively, one could also install it from Github, just run:
+```r
+if(!require(devtools)) install.packages('devtools')
+devtools::install_github("wencanhong/AMIAS")
+```
+
+For help in using the functions (say `amias`) in this R package, just run `?amias` or `help("somefunction")` in R or RStudio and a detailed documentation including usage and arguments is provided.
+
+
 
 ## Repository Structure
 
 #### [code](code) folder contains the following files in R language:
-* AMIAS_1.0.3.tar.gz: the R package for implementing the AMIAS algorithm proposed in our paper. After downloading it, you need to run the following code in R or RStudio to install it.
-
-      install.packages("Your_download_path/AMIAS_1.0.3.tar.gz", repos = NULL)
-  
-  This R package should be installed before running any R scripts or Rmarkdown files in this folder.
+* AMIAS_1.0.3.tar.gz: the R package for implementing the AMIAS algorithm proposed in our paper. This R package should be installed before running any R scripts or Rmarkdown files in this folder.
 * SimuL0TF.Rmd: generate Figures 2-7 and include some more illustrative simulated examples.
 * AlgoAnalysis.Rmd: replicate the reuslts and generate Figures 8-11 in Section 4.1.
 * utils.R and amiasutils.R: source codes used in AlgoAnalysis.Rmd.
@@ -74,7 +86,7 @@ After installing the R and Rstudio, you could open and run the script files of [
 
 
 ## Support
-For support in using the scripts and data, submit an [issue](https://github.com/INFORMSJoC/2021.0313/issues/new).
+For support in using the scripts and data, submit an [issue](https://github.com/C2S2-HF/L0TF/issues/new).
 
 
 
