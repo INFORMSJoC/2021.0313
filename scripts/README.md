@@ -2,11 +2,6 @@
 
 This file folder contains all the R scripts that are used to replicate the results in our paper. Before running these scripts, you need to install [R](https://cran.rstudio.com/) and [RStudio](https://posit.co/downloads/). 
 
-<!--
-* AMIAS_1.0.3.tar.gz: the R package for implementing the AMIAS algorithm proposed in our paper. After downloading it, you need to run the following code in R or RStudio to install it.
-
-      install.packages("Your_download_path/AMIAS_1.0.3.tar.gz", repos = NULL)
--->
 * AMIAS: the R package for implementing the AMIAS algorithm proposed in our paper. One could directly install it from Github by running:
    ```r
    if(!require(devtools)) install.packages('devtools')
