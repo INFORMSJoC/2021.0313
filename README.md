@@ -46,7 +46,7 @@ After installing the R and Rstudio, you could open and run the script files of [
 
 ## Installation
 
-The `AMIAS` R package implements the algorithm proposed in the paper *$\ell_0$ Trend Filtering* with R language. 
+The `AMIAS` R package implements the algorithm proposed in the paper $\ell_0$ *Trend Filtering* with R language. 
 
 To install the `AMIAS` R package, one could directly install it from Github by running:
 ```r
