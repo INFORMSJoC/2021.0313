@@ -2,10 +2,16 @@
 
 This file folder contains all the R scripts that are used to replicate the results in our paper. Before running these scripts, you need to install [R](https://cran.rstudio.com/) and [RStudio](https://posit.co/downloads/). 
 
+<!--
 * AMIAS_1.0.3.tar.gz: the R package for implementing the AMIAS algorithm proposed in our paper. After downloading it, you need to run the following code in R or RStudio to install it.
 
       install.packages("Your_download_path/AMIAS_1.0.3.tar.gz", repos = NULL)
-  
+-->
+* AMIAS: the R package for implementing the AMIAS algorithm proposed in our paper. 
+   ```r
+   if(!require(devtools)) install.packages('devtools')
+   devtools::install_github("C2S2-HF/L0TF/scripts/AMIAS")
+   ```
   This R package should be installed before running any R scripts or Rmarkdown files in this folder.
 
 * SimuL0TF.Rmd: generate Figures 2-7 and include some more illustrative simulated examples. The output HTML file should look like [SimuL0TF](../results/SimuL0TF.pdf).
