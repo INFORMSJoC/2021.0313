@@ -34,7 +34,7 @@ Below is the BibTex for citing this snapshot of the respoitory.
 
 ## Description
 
-The goal of this repository is to share softare and R scripts of our paper *$\ell_0$ Trend Filtering*. Our motivation is to present our code and results in a reproducible way and facilitate the coding effort of those who want to run further experiments or improve our model.
+The goal of this repository is to share softare and R scripts of our paper $\ell_0$ *Trend Filtering*. Our motivation is to present our code and results in a reproducible way and facilitate the coding effort of those who want to run further experiments or improve our model.
 
 ## Requirements
 
