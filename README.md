@@ -47,6 +47,7 @@ After installing the R and Rstudio, you could open and run the script files of [
 ## Installation
 
 The `AMIAS` R package implements the algorithm proposed in the paper *$\ell_0$ Trend Filtering* with R language. 
+<!--
 To install the `AMIAS` R package, one could directly download the source file **AMIAS_1.0.3.tar.gz:** in [code](code) folder, and install it from the local file folder by running
 ```r
 install.packages("Your_download_path/AMIAS_1.0.3.tar.gz", repos = NULL)
@@ -56,6 +57,12 @@ Alternatively, one could also install it from Github, just run:
 ```r
 if(!require(devtools)) install.packages('devtools')
 devtools::install_github("wencanhong/AMIAS")
+```
+-->
+To install the `AMIAS` R package, one could directly install it from Github by running:
+```r
+if(!require(devtools)) install.packages('devtools')
+devtools::install_github("C2S2-HF/L0TF/scripts/AMIAS")
 ```
 
 For help in using the functions (say `amias`) in this R package, just run `?amias` or `help("somefunction")` in R or RStudio and a detailed documentation including usage and arguments is provided.
