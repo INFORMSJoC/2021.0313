@@ -12,7 +12,7 @@ To install the `AMIAS` R package from Github, just run:
 
 ```r
 if(!require(devtools)) install.packages('devtools')
-devtools::install_github("wencanhong/AMIAS")
+devtools::install_github("C2S2-HF/L0TF/scripts/AMIAS")
 ```
 
 ## References
