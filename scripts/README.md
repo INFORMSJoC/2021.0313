@@ -7,7 +7,7 @@ This file folder contains all the R scripts that are used to replicate the resul
 
       install.packages("Your_download_path/AMIAS_1.0.3.tar.gz", repos = NULL)
 -->
-* AMIAS: the R package for implementing the AMIAS algorithm proposed in our paper. 
+* AMIAS: the R package for implementing the AMIAS algorithm proposed in our paper. One could directly install it from Github by running:
    ```r
    if(!require(devtools)) install.packages('devtools')
    devtools::install_github("C2S2-HF/L0TF/scripts/AMIAS")
