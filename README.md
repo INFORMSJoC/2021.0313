@@ -51,6 +51,11 @@ The `AMIAS` R package implements the algorithm proposed in the paper $\ell_0$ *T
 To install the `AMIAS` R package, one could directly install it from Github by running:
 ```r
 if(!require(devtools)) install.packages('devtools')
+devtools::install_github("INFORMSJoC/2021.0313/scripts/AMIAS")
+```
+or
+```r
+if(!require(devtools)) install.packages('devtools')
 devtools::install_github("C2S2-HF/L0TF/scripts/AMIAS")
 ```
 
@@ -61,16 +66,16 @@ For help in using the functions (say `amias`) in this R package, just run `?amia
 ## Repository Structure
 
 #### [code](code) folder contains the following files in R language:
-* AMIAS_1.0.3.tar.gz: the R package for implementing the AMIAS algorithm proposed in our paper. This R package should be installed before running any R scripts or Rmarkdown files in this folder.
+* [AMIAS](scripts/AMIAS) folder: the source codes for developing an R package to implement the AMIAS algorithm proposed in our paper. 
 * SimuL0TF.Rmd: generate Figures 2-7 and include some more illustrative simulated examples.
 * AlgoAnalysis.Rmd: replicate the reuslts and generate Figures 8-11 in Section 4.1.
 * utils.R and amiasutils.R: source codes used in AlgoAnalysis.Rmd.
 * RealData.R: replicate the results and generate all the graphs in Section 4.3.
 * AlgoAnalysis_APP.Rmd: replicate the reuslts and generate Figures B.1-B.7 in Appendix B.1.
-* [simu](simu) folder contains R scripts used in Appendix B.2: 
+* [simu](scripts/simu) folder contains R scripts used in Appendix B.2: 
     * nsimu.R and tsimu.R: replicate the results for all methods except for the l0-MIP with large sample size.
     * nsimul0tfc.R and tsimul0tfc.R: replicate the results of the l0-MIP method when sample size is large.
-* [simu_plots](simu_plots) folder contains the R Scripts used to generate Figures B.9-B.20 in Appendix B.2.
+* [simu_plots](scripts/simu_plots) folder contains the R Scripts used to generate Figures B.9-B.20 in Appendix B.2.
     * post_plot.R: generate Figures B.9, B.11 and B.13. 
     * pre_plot.R: generate Figures B.10, B.12 and B.14.
     * post_tplot.R: generate Figures B.15, B.17 and B.19. 
@@ -79,6 +84,7 @@ For help in using the functions (say `amias`) in this R package, just run `?amia
     
 #### [data](data) folder contains the data in the real data application in Section 4.2. Please see [spreadsheet file](data/air_hourly.csv) to view the data.
 
+#### [results](results) folder contains all the figures in our paper.
 
 
 ## Support
