@@ -51,6 +51,11 @@ The `AMIAS` R package implements the algorithm proposed in the paper $\ell_0$ *T
 To install the `AMIAS` R package, one could directly install it from Github by running:
 ```r
 if(!require(devtools)) install.packages('devtools')
+devtools::install_github("INFORMSJoC/2021.0313/scripts/AMIAS")
+```
+or
+```r
+if(!require(devtools)) install.packages('devtools')
 devtools::install_github("C2S2-HF/L0TF/scripts/AMIAS")
 ```
 
@@ -61,7 +66,7 @@ For help in using the functions (say `amias`) in this R package, just run `?amia
 ## Repository Structure
 
 #### [code](code) folder contains the following files in R language:
-* AMIAS_1.0.3.tar.gz: the R package for implementing the AMIAS algorithm proposed in our paper. This R package should be installed before running any R scripts or Rmarkdown files in this folder.
+* [AMIAS](AMIAS) folder: the source codes for developing an R package to implement the AMIAS algorithm proposed in our paper. 
 * SimuL0TF.Rmd: generate Figures 2-7 and include some more illustrative simulated examples.
 * AlgoAnalysis.Rmd: replicate the reuslts and generate Figures 8-11 in Section 4.1.
 * utils.R and amiasutils.R: source codes used in AlgoAnalysis.Rmd.
@@ -77,7 +82,7 @@ For help in using the functions (say `amias`) in this R package, just run `?amia
     * pre_tplot.R: generate Figures B.16, B.18 and B.20. 
     * combine_RData.R: combine the RData and needed to be run before generating all the figures.
     
-#### [data](data) folder contains the data in the real data application in Section 4.2. Please see [spreadsheet file](data/air_hourly.csv) to view the data.
+#### [data](scripts/data) folder contains the data in the real data application in Section 4.2. Please see [spreadsheet file](data/air_hourly.csv) to view the data.
 
 
 
