@@ -42,13 +42,41 @@ To run the R scripts in the [code](code) folder, you should install R and RStudi
  - [R](https://cran.rstudio.com/)(>3.3.0)
  - [RStudio](https://posit.co/downloads/)
  
-After installing the R and Rstudio, you could open and run the script files of [code](code) folder directly in RStudio.
+In Windows, you will need to install some additional software tools to build and install the `AMIAS` package, which implement the main algorithm of our paper. 
+- The Rtools is a collection of build tools, a compiler toolchain, headers and pre-compiled static libraries, and is  used for building R packages from source (those that need compilation of C/C++ or Fortran code). You could download Rtools at [Rtools](http://lib.stat.cmu.edu/R/CRAN/bin/windows/Rtools/). After downloading, double click `Rtools.exe` to install it and its accompanying tools: minGW, perl. Rtools automatically recognizes the paths of those relevant softwares and add them to the environment variables of your computer. For more details on the installation of Rtools, please go to the website [http://lib.stat.cmu.edu/R/CRAN/bin/windows/Rtools/rtools43/rtools.html](http://lib.stat.cmu.edu/R/CRAN/bin/windows/Rtools/rtools43/rtools.html).
+- In order to make a nicer outlook for the help documents, you might download and install LaTex and Microsoft HTML Help Workshop and the Inno Setup installer, available at http://www.miktex.org, and http://msdn.microsoft.com/en-us/library/ms669985.aspx, respectively. 
 
 ## Installation
 
 The `AMIAS` R package implements the algorithm proposed in the paper $\ell_0$ *Trend Filtering* with R language. 
 
-To install the `AMIAS` R package, one could directly install it from Github by running:
+Once the repo is locally cloned, you can follow the following steps to install the `AMIAS` R package:
+
+1. Open a terminal window
+2. Go to the directory that contains AMIAS/ directory.
+   Type
+   ```
+   R CMD build AMIAS
+   ```
+   The the user will see something like this
+   ```
+   * checking for file ‘AMIAS/DESCRIPTION’ ... OK
+   * preparing ‘AMIAS’:
+   * checking DESCRIPTION meta-information ... OK
+   * cleaning src
+   * checking for LF line-endings in source and make files and shell scripts
+   * checking for empty or unneeded directories
+   * building ‘AMIAS_1.0.3.tar.gz’
+   ```
+   and a *AMIAS_1.0.3.tar.gz* file will be there.
+
+3. Type
+   ```
+   R CMD INSTALL AMIAS_1.0.3.tar.gz
+   ```
+   to install the package.
+
+Alternatively, you could directly install it from Github without downloading it manually. Start R and type
 ```r
 if(!require(devtools)) install.packages('devtools')
 devtools::install_github("INFORMSJoC/2021.0313/scripts/AMIAS")
@@ -58,10 +86,24 @@ or
 if(!require(devtools)) install.packages('devtools')
 devtools::install_github("C2S2-HF/L0TF/scripts/AMIAS")
 ```
+to install the package.
 
-For help in using the functions (say `amias`) in this R package, just run `?amias` or `help("somefunction")` in R or RStudio and a detailed documentation including usage and arguments is provided.
+After installation, you can start R and run the following code to see that it was indeed installed:
+```r
+library(AMIAS)
+set.seed(0)
+n <- 100
+alpha0 <- rep(sample(1:10,5), each = n/5)
+y = alpha0 + rnorm(n, sd = 0.8)
 
+fit <- amias(y, k = 4, A = seq(20, 80, length.out = 4))
+plot(fit)
+```
+A figure like this should be plotted:
 
+[![](results/demo_install.png)](results/demo_install.png)
+
+For help in using the functions (say `amias`) in this R package, just run `?amias` or `help("amias")` in R or RStudio and a detailed documentation including usage and arguments is provided.
 
 ## Repository Structure
 

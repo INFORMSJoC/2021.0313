@@ -8,17 +8,47 @@ in function values or derivatives. For more details, please see the paper **$\el
 
 ## Installation
 
-To install the `AMIAS` R package from Github, just run:
+If you are going to install the package in Unix, just skip and go to the next paragraph. In Windows, you will need to install some additional software tools to build and install the `AMIAS` package, which implement the main algorithm of our paper. 
+- The Rtools is a collection of build tools, a compiler toolchain, headers and pre-compiled static libraries, and is  used for building R packages from source (those that need compilation of C/C++ or Fortran code). You could download Rtools at [Rtools](http://lib.stat.cmu.edu/R/CRAN/bin/windows/Rtools/). After downloading, double click `Rtools.exe` to install it and its accompanying tools: minGW, perl. Rtools automatically recognizes the paths of those relevant softwares and add them to the environment variables of your computer. For more details on the installation of Rtools, please go to the website [http://lib.stat.cmu.edu/R/CRAN/bin/windows/Rtools/rtools43/rtools.html](http://lib.stat.cmu.edu/R/CRAN/bin/windows/Rtools/rtools43/rtools.html).
+- In order to make a nicer outlook for the help documents, you might download and install LaTex and Microsoft HTML Help Workshop and the Inno Setup installer, available at http://www.miktex.org, and http://msdn.microsoft.com/en-us/library/ms669985.aspx, respectively. 
+
+Once the repo is locally cloned, the user can follow the following steps to install the `AMIAS` R package:
+
+1. Open a terminal window
+2. Go to the directory that contains AMIAS/ directory.
+   Type
+   ```
+   R CMD build AMIAS
+   ```
+   The the user will see something like this
+   ```
+   * checking for file ‘AMIAS/DESCRIPTION’ ... OK
+   * preparing ‘AMIAS’:
+   * checking DESCRIPTION meta-information ... OK
+   * cleaning src
+   * checking for LF line-endings in source and make files and shell scripts
+   * checking for empty or unneeded directories
+   * building ‘AMIAS_1.0.3.tar.gz’
+   ```
+   and a *AMIAS_1.0.3.tar.gz* file will be there.
+
+3. Type
+   ```
+   R CMD INSTALL AMIAS_1.0.3.tar.gz
+   ```
+   to install the package.
+
+Alternatively, the user could directly install it from Github without downloading it manually. Start R and type
 ```r
 if(!require(devtools)) install.packages('devtools')
 devtools::install_github("INFORMSJoC/2021.0313/scripts/AMIAS")
 ```
 or
-
 ```r
 if(!require(devtools)) install.packages('devtools')
 devtools::install_github("C2S2-HF/L0TF/scripts/AMIAS")
 ```
+to install the package.
 
 ## File Folder Structure
 
