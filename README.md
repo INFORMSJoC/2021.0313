@@ -42,13 +42,13 @@ To run the R scripts in the [code](code) folder, you should install R and RStudi
  - [R](https://cran.rstudio.com/)(>3.3.0)
  - [RStudio](https://posit.co/downloads/)
  
-After installing the R and Rstudio, you could open and run the script files of [code](code) folder directly in RStudio.
+
 
 ## Installation
 
 The `AMIAS` R package implements the algorithm proposed in the paper $\ell_0$ *Trend Filtering* with R language. 
 
-Once the repo is locally cloned, the user can follow the  following steps to install the `AMIAS` R package:
+Once the repo is locally cloned, you can follow the following steps to install the `AMIAS` R package:
 
 1. Open a terminal window
 2. Go to the directory that contains AMIAS/ directory.
@@ -74,7 +74,7 @@ Once the repo is locally cloned, the user can follow the  following steps to ins
    ```
    to install the package.
 
-Alternatively, the user could directly install it from Github without downloading it manually. Start R and type
+Alternatively, you could directly install it from Github without downloading it manually. Start R and type
 ```r
 if(!require(devtools)) install.packages('devtools')
 devtools::install_github("INFORMSJoC/2021.0313/scripts/AMIAS")
@@ -86,7 +86,7 @@ devtools::install_github("C2S2-HF/L0TF/scripts/AMIAS")
 ```
 to install the package.
 
-After installation, the user can start R and run the following code to see that it was indeed installed:
+After installation, you can start R and run the following code to see that it was indeed installed:
 ```r
 library(AMIAS)
 set.seed(0)
