@@ -41,8 +41,8 @@ The goal of this repository is to share softare and R scripts of our paper $\ell
 To run the R scripts in the [code](code) folder, you should install R and RStudio firstly:
  - [R](https://cran.rstudio.com/)(>3.3.0)
  - [RStudio](https://posit.co/downloads/)
- 
-
+ - 
+In Windows, you will need to install some additional software tools to build and install the `AMIAS` package, which implement the main algorithm of our paper. The Rtools is a collection of build tools, a compiler toolchain, headers and pre-compiled static libraries, and is  used for building R packages from source (those that need compilation of C/C++ or Fortran code). You could download Rtools at [Rtools](http://lib.stat.cmu.edu/R/CRAN/bin/windows/Rtools/). After downloading, double click `Rtools.exe` to install it and its accompanying tools: minGW, perl. Rtools automatically recognizes the paths of those relevant softwares and add them to the environment variables of your computer. For more details on the installation of Rtools, please go to the website [http://lib.stat.cmu.edu/R/CRAN/bin/windows/Rtools/rtools43/rtools.html](http://lib.stat.cmu.edu/R/CRAN/bin/windows/Rtools/rtools43/rtools.html).
 
 ## Installation
 
