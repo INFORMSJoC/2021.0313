@@ -48,7 +48,33 @@ After installing the R and Rstudio, you could open and run the script files of [
 
 The `AMIAS` R package implements the algorithm proposed in the paper $\ell_0$ *Trend Filtering* with R language. 
 
-To install the `AMIAS` R package, one could directly install it from Github by running:
+Once the repo is locally cloned, the user can follow the  following steps to install the `AMIAS` R package:
+
+1. Open a terminal window
+2. Go to the directory that contains AMIAS/ directory.
+   Type
+   ```
+   R CMD build AMIAS
+   ```
+   The the user will see something like this
+   ```
+   * checking for file ‘AMIAS/DESCRIPTION’ ... OK
+   * preparing ‘AMIAS’:
+   * checking DESCRIPTION meta-information ... OK
+   * cleaning src
+   * checking for LF line-endings in source and make files and shell scripts
+   * checking for empty or unneeded directories
+   * building ‘AMIAS_1.0.3.tar.gz’
+   ```
+   and a *AMIAS_1.0.3.tar.gz* file will be there.
+
+3. Type
+   ```
+   R CMD INSTALL AMIAS_1.0.3.tar.gz
+   ```
+   to install the package.
+
+Alternatively, the user could directly install it from Github without downloading it manually. Start R and type
 ```r
 if(!require(devtools)) install.packages('devtools')
 devtools::install_github("INFORMSJoC/2021.0313/scripts/AMIAS")
@@ -58,9 +84,23 @@ or
 if(!require(devtools)) install.packages('devtools')
 devtools::install_github("C2S2-HF/L0TF/scripts/AMIAS")
 ```
+to install the package.
+
+After installation, the user can start R and type the following code to see that it was indeed installed:
+```r
+library(AMIAS)
+set.seed(0)
+n <- 100
+alpha0 <- rep(sample(1:10,5), each = n/5)
+y = alpha0 + rnorm(n, sd = 0.8)
+
+fit <- amias(y, k = 4, A = seq(20, 80, length.out = 4))
+plot(fit)
+```
+A figure like this should be plotted:
 
 For help in using the functions (say `amias`) in this R package, just run `?amias` or `help("somefunction")` in R or RStudio and a detailed documentation including usage and arguments is provided.
-
+[![](results/demo_install.png)](results/demo_install.png)
 
 
 ## Repository Structure
