@@ -86,7 +86,7 @@ devtools::install_github("C2S2-HF/L0TF/scripts/AMIAS")
 ```
 to install the package.
 
-After installation, the user can start R and type the following code to see that it was indeed installed:
+After installation, the user can start R and run the following code to see that it was indeed installed:
 ```r
 library(AMIAS)
 set.seed(0)
@@ -99,9 +99,9 @@ plot(fit)
 ```
 A figure like this should be plotted:
 
-For help in using the functions (say `amias`) in this R package, just run `?amias` or `help("somefunction")` in R or RStudio and a detailed documentation including usage and arguments is provided.
 [![](results/demo_install.png)](results/demo_install.png)
 
+For help in using the functions (say `amias`) in this R package, just run `?amias` or `help("amias")` in R or RStudio and a detailed documentation including usage and arguments is provided.
 
 ## Repository Structure
 
