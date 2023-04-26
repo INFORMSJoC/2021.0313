@@ -22,7 +22,7 @@ https://doi.org/10.1287/ijoc.2021.0313.cd
 Below is the BibTex for citing this snapshot of the respoitory.
 
 ```
-@article{wenl0trend,
+@misc{wenl0trend,
   author =        {Canhong Wen, Xueqin Wang, Aijun Zhang},
   publisher =     {INFORMS Journal on Computing},
   title =         {$\ell_0$ Trend Filtering},
