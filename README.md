@@ -15,9 +15,9 @@ get a more recent version or would like support.**
 
 To cite the contents of this repository, please cite both the paper and this repo, using their respective DOIs.
 
-https://doi.org/10.1287/ijoc.2019.0000
+https://doi.org/10.1287/ijoc.2021.0313
 
-https://doi.org/10.1287/ijoc.2019.0000.cd
+https://doi.org/10.1287/ijoc.2021.0313.cd
 
 Below is the BibTex for citing this snapshot of the respoitory.
 
@@ -27,8 +27,8 @@ Below is the BibTex for citing this snapshot of the respoitory.
   publisher =     {INFORMS Journal on Computing},
   title =         {$\ell_0$ Trend Filtering},
   year =          {2023},
-  doi =           {10.1287/ijoc.2019.0000.cd},
-  url =           {https://github.com/INFORMSJoC/2021.0313},
+  doi =           {10.1287/ijoc.2021.0313.cd},
+  note =           {Available for download at https://github.com/INFORMSJoC/2021.0313},
 }  
 ```
 
