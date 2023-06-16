@@ -1,11 +1,11 @@
 [![INFORMS Journal on Computing Logo](https://INFORMSJoC.github.io/logos/INFORMS_Journal_on_Computing_Header.jpg)](https://pubsonline.informs.org/journal/ijoc)
 
-# [$\ell_0$ Trend Filtering](https://doi.org/10.1287/ijoc.2021.0313)
+# $\ell_0$ Trend Filtering
 
 This archive is distributed in association with the [INFORMS Journal on
 Computing](https://pubsonline.informs.org/journal/ijoc) under the [MIT License](LICENSE).
 
-The software and R scripts in this repository are a snapshot of the software and code that were used in the research reported on in the paper 
+The software and R scripts in this repository are a snapshot of the software and code that were used in the research reported on in the [paper](https://doi.org/10.1287/ijoc.2021.0313) 
 **$\ell_0$ Trend Filtering** by C. Wen and X. Wang and A. Zhang. 
 
 **Important: This code is being developed on an on-going basis at https://github.com/C2S2-HF/L0TF. Please go there if you would like to
